@@ -69,6 +69,10 @@
   background-color: red;
 }
 
+.correct{
+  background-color: green;
+}
+
 .disabled{
   background-color: black;
 }

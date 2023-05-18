@@ -37,6 +37,8 @@ function App() {
   for (let i = 0; i < 6; i++) {
     let onClickVaule;
     let classNames = "";
+
+    // currently Selected image
     if(i === imageIndex){
       classNames = classNames + "SelectedNumber";
     }
@@ -48,10 +50,21 @@ function App() {
     }else if(i === guessIndex){
       // Button for the latest revealed image
       onClickVaule = ()=>{changeImageIndex(i)};
+      if(correctGuessIndex !== -1){
+        // If user has already guessed correctly, latest guess shows green
+        classNames = classNames + " correct";
+      }
     }else{
       // For images not unlocked
-      classNames = classNames + " disabled";
+
+      if(correctGuessIndex === -1){
+        // If user has not guessed correctly, latest guess shows green
+        classNames = classNames + " disabled";
+      }else{
+        onClickVaule = ()=>{changeImageIndex(i)};
+      }
     }
+    
 
     screenshotNumberButtonArray.push(
       <button 
