@@ -5,6 +5,9 @@ function App() {
   // Current image shown
   const [imageIndex, setIndex] = useState(0);
 
+  // Current guess
+  const [guessIndex, setguessIndex] = useState(0);
+
   let correctAnswer = "hi";
 
   let images = [
@@ -20,14 +23,34 @@ function App() {
     setIndex(number);
   }
 
+  // When you guess wrong, it advances the guess by 1 (and changes the image to the newest revealed image)
+  function advanceGuess() {
+    setguessIndex(guessIndex + 1);
+    changeImageIndex(guessIndex + 1);
+  }
+
   // Render Numbered Buttons
   let screenshotNumberButtonArray = [];
   for (let i = 0; i < 6; i++) {
+    let onClickVaule;
+    let classNames = "";
+    if(i === imageIndex){
+      classNames = classNames + "SelectedNumber";
+    }
+
+    if(i <= guessIndex){
+      // For images already seen or current image
+      onClickVaule = ()=>{changeImageIndex(i)};
+    }else{
+      // For images not unlocked
+      classNames = classNames + " disabled";
+    }
+
     screenshotNumberButtonArray.push(
       <button 
         // Classname changes depending on if the current image index is the same as the button
-        className={i === imageIndex ? "SelectedNumber": ""}
-        onClick={()=>{changeImageIndex(i)}}
+        className={classNames}
+        onClick={onClickVaule}
       >
         {i+1}
       </button>
@@ -48,9 +71,10 @@ function App() {
 
     if(formJson.guess == correctAnswer){
       console.log("correct");
+
     }else{
       console.log("fail");
-
+      advanceGuess();
     }
   }
 
