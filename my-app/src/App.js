@@ -11,6 +11,9 @@ function App() {
   // Index of the guess which is correct (-1 means user has not guessed correctly)
   const [correctGuessIndex, setcorrectGuessIndex] = useState(-1);
 
+  // _______________________________________________________________________
+
+  // Fake data section
   let correctAnswer = "hi";
 
   let images = [
@@ -22,6 +25,9 @@ function App() {
     "https://ichef.bbci.co.uk/news/976/cpsprodpb/F382/production/_123883326_852a3a31-69d7-4849-81c7-8087bf630251.jpg"
   ];
 
+  // _______________________________________________________________________
+  // Functions
+
   function changeImageIndex(number) {
     setIndex(number);
   }
@@ -29,12 +35,38 @@ function App() {
   // When you guess wrong, it advances the guess by 1 (and changes the image to the newest revealed image)
   function advanceGuess() {
     setguessIndex(guessIndex + 1);
+
     // Weird because guess index doesn't update until the function is finished?
     // If statement is there because you don't want it to show a image index for an image that isn't there
     if(guessIndex + 1 < images.length){
       changeImageIndex(guessIndex + 1);
     }
   }
+
+  // Function that runs when a guess is made
+  function handleSubmit(e) {
+    // Prevent the browser from reloading the page
+    e.preventDefault();
+
+    // Read the form data
+    const form = e.target;
+    const formData = new FormData(form);
+
+    // Can work with it as a plain object:
+    const formJson = Object.fromEntries(formData.entries());
+    console.log(formJson);
+
+    if(formJson.guess == correctAnswer){
+      console.log("correct");
+      setcorrectGuessIndex(guessIndex);
+    }else{
+      console.log("fail");
+      advanceGuess();
+    }
+  }
+
+  // _______________________________________________________________________
+  // Rendering components that change with logic
 
   // Render Numbered Buttons
   let screenshotNumberButtonArray = [];
@@ -68,7 +100,6 @@ function App() {
         onClickVaule = ()=>{changeImageIndex(i)};
       }
     }
-    
 
     screenshotNumberButtonArray.push(
       <button 
@@ -81,7 +112,11 @@ function App() {
     );
   }
 
-  // Render form to guess, congrats message, or reveal answer (condolences...)
+  
+  // Show either: 
+    // - Form for user to guess an answer, 
+    // - Congrats message and anser, 
+    // - Condolences... here is the correct answer
   let formCongratsOrCondolences;
   let skipButton;
   if(correctGuessIndex === -1){
@@ -111,27 +146,6 @@ function App() {
     formCongratsOrCondolences = <p>Yee! The answer is {correctAnswer}</p>
   }
 
-  function handleSubmit(e) {
-    // Prevent the browser from reloading the page
-    e.preventDefault();
-
-    // Read the form data
-    const form = e.target;
-    const formData = new FormData(form);
-
-    // Can work with it as a plain object:
-    const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
-
-    if(formJson.guess == correctAnswer){
-      console.log("correct");
-      setcorrectGuessIndex(guessIndex);
-    }else{
-      console.log("fail");
-      advanceGuess();
-    }
-  }
-
 
   return (
     <div className="App">
@@ -154,7 +168,6 @@ function App() {
           <div className="screenshotNumberContainer">
             {screenshotNumberButtonArray}
           </div>
-          {/* Todo make button disappear when there are no more guesses or if correct */}
           {skipButton}
         </div>
         <div>
