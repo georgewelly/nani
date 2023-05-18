@@ -4,6 +4,8 @@ import './App.css';
 function App() {
   const [imageIndex, setIndex] = useState(0);
 
+  let correctAnswer = "hi";
+
   let images = [
     "https://www.gamespot.com/a/uploads/original/1603/16030002/4111613-mha-01.png",
     "https://assets-prd.ignimgs.com/2022/08/17/top25animecharacters-blogroll-1660777571580.jpg",
@@ -31,6 +33,26 @@ function App() {
     );
   }
 
+  function handleSubmit(e) {
+    // Prevent the browser from reloading the page
+    e.preventDefault();
+
+    // Read the form data
+    const form = e.target;
+    const formData = new FormData(form);
+
+    // Can work with it as a plain object:
+    const formJson = Object.fromEntries(formData.entries());
+    console.log(formJson);
+
+    if(formJson.guess == correctAnswer){
+      console.log("correct");
+    }else{
+      console.log("fail");
+
+    }
+  }
+
 
   return (
     <div className="App">
@@ -56,7 +78,9 @@ function App() {
           <div>Skip</div>
         </div>
         <div>
-          <form action="/action_page.php">
+          <form 
+            onSubmit={handleSubmit}
+          >
             <input type="text" id="guess" name="guess"/>
             <input type="submit" value="Submit"/>
           </form>
