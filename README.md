@@ -17,12 +17,18 @@ A game site where you guess the anime of the day based on screenshots and hints.
 * Automate metadata collection for animes
 
 ___________________________________________________________________________________________
+## Running in you local env
+
+- Go to the `my-app` folder
+- Run `npm start`
+
+(The rest of the instructions should be in the file `README.md` inside the `src` folder)
 
 ## Code
 
-###Guessing page
+### Guessing page
 
-####States
+#### States
 There are 3 states at the moment:
 - `imageIndex`
      - This is the index of the image the user is currently viewing
