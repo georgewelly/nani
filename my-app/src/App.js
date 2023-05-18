@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
+  // Current image shown
   const [imageIndex, setIndex] = useState(0);
 
   let correctAnswer = "hi";
