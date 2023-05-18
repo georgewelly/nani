@@ -65,6 +65,10 @@
   font-weight: bold;
 }
 
+.wrong{
+  background-color: red;
+}
+
 .disabled{
   background-color: black;
 }

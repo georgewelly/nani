@@ -38,8 +38,12 @@ function App() {
       classNames = classNames + "SelectedNumber";
     }
 
-    if(i <= guessIndex){
-      // For images already seen or current image
+    if(i < guessIndex){
+      // For images previously revealed and guessed wrong
+      classNames = classNames + " wrong";
+      onClickVaule = ()=>{changeImageIndex(i)};
+    }else if(i === guessIndex){
+      // Button for the latest revealed image
       onClickVaule = ()=>{changeImageIndex(i)};
     }else{
       // For images not unlocked
