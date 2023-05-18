@@ -8,6 +8,9 @@ function App() {
   // Current guess
   const [guessIndex, setguessIndex] = useState(0);
 
+  // Index of the guess which is correct (-1 means user has not guessed correctly)
+  const [correctGuessIndex, setcorrectGuessIndex] = useState(-1);
+
   let correctAnswer = "hi";
 
   let images = [
@@ -61,6 +64,28 @@ function App() {
     );
   }
 
+  // Render form to guess, congrats message, or reveal answer (condolences...)
+  let formCongratsOrCondolences;
+  if(correctGuessIndex === -1){
+    // User has not guessed correctly yet
+    if(guessIndex < 6){
+      // User still has guesses
+      formCongratsOrCondolences = <>
+          <form 
+            onSubmit={handleSubmit}
+          >
+            <input type="text" id="guess" name="guess"/>
+            <input type="submit" value="Submit"/>
+          </form>
+      </>
+    }else{
+      // User has no guesses left
+      formCongratsOrCondolences = <p>Condolences, the answer is {correctAnswer}</p>
+    }
+  }else{
+    formCongratsOrCondolences = <p>Yee! The answer is {correctAnswer}</p>
+  }
+
   function handleSubmit(e) {
     // Prevent the browser from reloading the page
     e.preventDefault();
@@ -75,7 +100,7 @@ function App() {
 
     if(formJson.guess == correctAnswer){
       console.log("correct");
-
+      setcorrectGuessIndex(guessIndex);
     }else{
       console.log("fail");
       advanceGuess();
@@ -104,20 +129,20 @@ function App() {
           <div className="screenshotNumberContainer">
             {screenshotNumberButtonArray}
           </div>
+          {/* Todo make button disappear when there are no more guesses or if correct */}
           <button 
             onClick={advanceGuess}
           >
             Skip
           </button>
         </div>
+
+
         <div>
-          <form 
-            onSubmit={handleSubmit}
-          >
-            <input type="text" id="guess" name="guess"/>
-            <input type="submit" value="Submit"/>
-          </form>
+          {formCongratsOrCondolences}
         </div>
+
+
       </div>
     </div>
   );
