@@ -17,6 +17,20 @@ function App() {
     setIndex(number);
   }
 
+  // Render Numbered Buttons
+  let screenshotNumberButtonArray = [];
+  for (let i = 0; i < 6; i++) {
+    screenshotNumberButtonArray.push(
+      <button 
+        // Classname changes depending on if the current image index is the same as the button
+        className={i === imageIndex ? "SelectedNumber": ""}
+        onClick={()=>{changeImageIndex(i)}}
+      >
+        {i+1}
+      </button>
+    );
+  }
+
 
   return (
     <div className="App">
@@ -37,12 +51,7 @@ function App() {
         </div >
         <div className="screenshotNumberAndSkipContainer">
           <div className="screenshotNumberContainer">
-            <button onClick={()=>{changeImageIndex(0)}}>1</button>
-            <button onClick={()=>{changeImageIndex(1)}}>2</button>
-            <button onClick={()=>{changeImageIndex(2)}}>3</button>
-            <button onClick={()=>{changeImageIndex(3)}}>4</button>
-            <button onClick={()=>{changeImageIndex(4)}}>5</button>
-            <button onClick={()=>{changeImageIndex(5)}}>6</button>
+            {screenshotNumberButtonArray}
           </div>
           <div>Skip</div>
         </div>
