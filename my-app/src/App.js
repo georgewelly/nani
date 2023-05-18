@@ -29,7 +29,11 @@ function App() {
   // When you guess wrong, it advances the guess by 1 (and changes the image to the newest revealed image)
   function advanceGuess() {
     setguessIndex(guessIndex + 1);
-    changeImageIndex(guessIndex + 1);
+    // Weird because guess index doesn't update until the function is finished?
+    // If statement is there because you don't want it to show a image index for an image that isn't there
+    if(guessIndex + 1 < images.length){
+      changeImageIndex(guessIndex + 1);
+    }
   }
 
   // Render Numbered Buttons
