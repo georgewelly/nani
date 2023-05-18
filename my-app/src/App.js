@@ -66,6 +66,7 @@ function App() {
 
   // Render form to guess, congrats message, or reveal answer (condolences...)
   let formCongratsOrCondolences;
+  let skipButton;
   if(correctGuessIndex === -1){
     // User has not guessed correctly yet
     if(guessIndex < 6){
@@ -77,6 +78,13 @@ function App() {
             <input type="text" id="guess" name="guess"/>
             <input type="submit" value="Submit"/>
           </form>
+      </>
+      skipButton = <>
+        <button 
+          onClick={advanceGuess}
+        >
+          Skip
+        </button>
       </>
     }else{
       // User has no guesses left
@@ -130,11 +138,7 @@ function App() {
             {screenshotNumberButtonArray}
           </div>
           {/* Todo make button disappear when there are no more guesses or if correct */}
-          <button 
-            onClick={advanceGuess}
-          >
-            Skip
-          </button>
+          {skipButton}
         </div>
 
 
