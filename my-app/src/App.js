@@ -140,13 +140,9 @@ function App() {
           {/* Todo make button disappear when there are no more guesses or if correct */}
           {skipButton}
         </div>
-
-
         <div>
           {formCongratsOrCondolences}
         </div>
-
-
       </div>
     </div>
   );
