@@ -104,7 +104,11 @@ function App() {
           <div className="screenshotNumberContainer">
             {screenshotNumberButtonArray}
           </div>
-          <div>Skip</div>
+          <button 
+            onClick={advanceGuess}
+          >
+            Skip
+          </button>
         </div>
         <div>
           <form 
