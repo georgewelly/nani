@@ -17,14 +17,33 @@ function GuessPage() {
 
   // Get the URL query.
   // ...?puzzle=... <- the value of the puzzle key will be the index of the puzzle loaded
+  // const queryString = window.location.search;
+  // const searchParams = new URLSearchParams(queryString);
+  // let puzzleNumber =  parseInt(searchParams.get("puzzle"));
+
+  // // TODO: Handle if query is not present or is a string or something 
+  // // VVV For some reason putting this in an if statement crashes... VVV
+  // let correctAnswer = puzzle[puzzleNumber-1].answer;
+  // let images = puzzle[puzzleNumber-1].images;
+
+
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
-  let puzzleNumber =  parseInt(searchParams.get("puzzle"));
+  let puzzleNumber = parseInt(searchParams.get("puzzle"));
+  
+  if (Number.isNaN(puzzleNumber) || puzzleNumber === 0) {
+    // Handle the case when the puzzle number is not a valid integer
+    console.error("Invalid puzzle number");
+    console.error("Defaulted to the oldest puzzle");
 
-  // TODO: Handle if query is not present or is a string or something 
-  // VVV For some reason putting this in an if statement crashes... VVV
-  let correctAnswer = puzzle[puzzleNumber-1].answer;
-  let images = puzzle[puzzleNumber-1].images;
+    // Todo: Redirect to newest puzzle which has been released
+
+    // You can provide a default value or take appropriate action
+    puzzleNumber = 1; // Assuming 0 is an invalid puzzle number
+  }
+  
+  let correctAnswer = puzzle[puzzleNumber - 1].answer;
+  let images = puzzle[puzzleNumber - 1].images;
 
   // _______________________________________________________________________
   // Functions
