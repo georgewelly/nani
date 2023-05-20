@@ -147,31 +147,23 @@ function GuessPage() {
 
 
   return (
-    <div className="mainContainer">
-        <div className="topBar">
-            <div>
-            Guess the stuff
-            </div>
-            <div>
-            icons
-            </div>
-        </div>
-        <p>Anime Number</p>
-        <div className="pictureContainer">
-            <img 
-            src={images[imageIndex]}
-            />
-        </div >
-        <div className="screenshotNumberAndSkipContainer">
-            <div className="screenshotNumberContainer">
-            {screenshotNumberButtonArray}
-            </div>
-            {skipButton}
-        </div>
-        <div>
-            {formCongratsOrCondolences}
-        </div>
-    </div>
+    <>
+      <p>Anime Number</p>
+      <div className="pictureContainer">
+          <img 
+          src={images[imageIndex]}
+          />
+      </div >
+      <div className="screenshotNumberAndSkipContainer">
+          <div className="screenshotNumberContainer">
+          {screenshotNumberButtonArray}
+          </div>
+          {skipButton}
+      </div>
+      <div>
+          {formCongratsOrCondolences}
+      </div>
+    </>
   );
 }
 
