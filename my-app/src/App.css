@@ -76,3 +76,16 @@
 .disabled{
   background-color: black;
 }
+
+/* Previous puzzle page */
+
+.dateGrid{
+  display: grid;
+  grid-template-columns: 1fr  1fr;
+  row-gap: 4px;
+  margin: 8px 0;
+}
+
+.date{
+  margin: 0;
+}
