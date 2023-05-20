@@ -30,6 +30,8 @@
 
 /* Felix's CSS below here */
 
+/* Shared CSS for every page */
+
 .mainContainer{
   display: flex;
   flex-direction: column;
@@ -41,6 +43,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+/* Guess page CSS */
 
 .pictureContainer{
    
