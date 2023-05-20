@@ -1,6 +1,6 @@
 import './App.css';
-import GuessPage from './GuessPage';
-import PreviousPuzzlePage from './PreviousPuzzlePage';
+import GuessPage from './components/GuessPage';
+import PreviousPuzzlePage from './components/PreviousPuzzlePage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
