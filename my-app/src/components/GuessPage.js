@@ -14,9 +14,17 @@ function GuessPage() {
   // _______________________________________________________________________
 
   // Fake data section
-  let correctAnswer = puzzle[0].answer;
 
-  let images = puzzle[0].images;
+  // Get the URL query.
+  // ...?puzzle=... <- the value of the puzzle key will be the index of the puzzle loaded
+  const queryString = window.location.search;
+  const searchParams = new URLSearchParams(queryString);
+  let puzzleNumber =  parseInt(searchParams.get("puzzle"));
+
+  // TODO: Handle if query is not present or is a string or something 
+  // VVV For some reason putting this in an if statement crashes... VVV
+  let correctAnswer = puzzle[puzzleNumber-1].answer;
+  let images = puzzle[puzzleNumber-1].images;
 
   // _______________________________________________________________________
   // Functions
@@ -142,7 +150,7 @@ function GuessPage() {
 
   return (
     <>
-      <p>Anime Number</p>
+      <p>Puzzle Number #{puzzleNumber}</p>
       <div className="pictureContainer">
           <img 
           src={images[imageIndex]}
