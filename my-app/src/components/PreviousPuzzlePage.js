@@ -2,9 +2,9 @@ import {puzzle} from '../data'
 
 function PreviousPuzzlePage() {
 
-  const puzzleList = puzzle.map(puzzle =>
+  const puzzleList = puzzle.map((puzzle, index) =>
     <>
-      <p className="date">{puzzle.date}</p>
+      <p className="date">Puzzle #{index}</p>
       <button className="playButton">Play</button>
     </>
   );
