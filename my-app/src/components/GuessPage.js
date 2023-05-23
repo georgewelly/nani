@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {puzzle} from '../data'
+import {puzzle} from '../data';
 
 function GuessPage() {
   // Current image shown
