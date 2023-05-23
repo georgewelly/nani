@@ -47,6 +47,19 @@
   margin: 16px 0;
 }
 
+.howToPlayPopUp{
+  text-align: left;
+  padding: 8px;
+  background-color: beige;
+  position: relative;
+}
+
+.howToPlayPopUpCloseButton{
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
 /* Guess page CSS */
 
 .pictureContainer{
