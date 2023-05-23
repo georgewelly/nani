@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {puzzle} from '../data';
+import {Link} from "react-router-dom";
 
 function GuessPage() {
   // Current image shown
@@ -184,6 +185,7 @@ function GuessPage() {
       <div>
           {formCongratsOrCondolences}
       </div>
+      <Link to="/previous">Guess another Pokemon</Link>
     </>
   );
 }
