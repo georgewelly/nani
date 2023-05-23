@@ -3,7 +3,7 @@ function TopBar() {
   return (
     <div className="topBar">
         <div>
-            Guess the stuff
+            Who's that Pokemon?
         </div>
         <div>
             icons
