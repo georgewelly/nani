@@ -20,7 +20,7 @@ function PreviousPuzzlePage() {
     let query = "/?puzzle=" + (index+1).toString();
     return(
       <>
-        <p className="date">Puzzle #{index}</p>
+        <p className="date">Puzzle #{index+1}</p>
         {/* <button className="playButton">Play</button> */}
         <Link to={query}>Play</Link>
       </>
