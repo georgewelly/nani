@@ -29,7 +29,11 @@ function PreviousPuzzlePage() {
 
   return (
     <>
-        <button>Play today's puzzle</button>
+        <Link 
+          to={"/?puzzle=" + releasedPuzzles.length.toString()}
+        >
+          Play today's puzzle
+        </Link>
         <div className="dateGrid">
           {puzzleList}
         </div>
