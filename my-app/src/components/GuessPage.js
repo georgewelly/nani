@@ -115,7 +115,7 @@ function GuessPage() {
       // For images not unlocked
 
       if(correctGuessIndex === -1){
-        // If user has not guessed correctly, latest guess shows green
+        // If user has not guessed correctly
         classNames = classNames + " disabled";
       }else{
         onClickVaule = ()=>{changeImageIndex(i)};
