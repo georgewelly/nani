@@ -145,7 +145,7 @@ function GuessPage() {
     // - Congrats message and anser, 
     // - Condolences... here is the correct answer
   let formCongratsOrCondolences;
-  let skipButton;
+  let skipOrAnswerButton;
   if(correctGuessIndex === -1){
     // User has not guessed correctly yet
     if(guessIndex < 6){
@@ -158,7 +158,7 @@ function GuessPage() {
             <input type="submit" value="Submit"/>
           </form>
       </>
-      skipButton = <>
+      skipOrAnswerButton = <>
         <button 
           onClick={advanceGuess}
         >
@@ -168,7 +168,7 @@ function GuessPage() {
     }else{
       // User has no guesses left
       formCongratsOrCondolences = <p>Condolences, the answer is {correctAnswer}</p>
-      skipButton = <>
+      skipOrAnswerButton = <>
         <button 
           className={imageIndex === images.length-1 ? "SelectedNumber":""}
           onClick={showAnswer}
@@ -179,7 +179,7 @@ function GuessPage() {
     }
   }else{
     formCongratsOrCondolences = <p>Yee! The answer is {correctAnswer}</p>
-    skipButton = <>
+    skipOrAnswerButton = <>
         <button 
           className={imageIndex === images.length-1 ? "SelectedNumber":""}
           onClick={showAnswer}
@@ -204,7 +204,7 @@ function GuessPage() {
           <div className="screenshotNumberContainer">
           {screenshotNumberButtonArray}
           </div>
-          {skipButton}
+          {skipOrAnswerButton}
       </div>
       <div>
           {formCongratsOrCondolences}
