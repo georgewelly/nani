@@ -111,6 +111,33 @@
   background-color: black;
 }
 
+/* Form */
+.form{
+  display: flex;
+}
+
+.inputFieldContainer{
+  position: relative;
+}
+
+.autocompleteContainer{
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+.autoCompleteItem{
+  background-color: white;
+  margin: 0;
+  border: 1px solid black;
+}
+
 /* Previous puzzle page */
 .dateGrid{
   display: grid;

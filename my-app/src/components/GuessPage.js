@@ -156,6 +156,13 @@ function GuessPage() {
     );
   }
 
+  // Autocomplete
+  // let autocompleteJSX = [];
+  let autocompleteJSX = autoCompleteItems.map((autocompleteItem) => 
+    <p className="autoCompleteItem">
+      {autocompleteItem}
+    </p>
+  );
   
   // Show either: 
     // - Form for user to guess an answer, 
@@ -169,15 +176,23 @@ function GuessPage() {
       // User still has guesses
       formCongratsOrCondolences = <>
           <form 
+            className="form"
             onSubmit={handleSubmit}
           >
-            <input 
-              type="text" 
-              id="guess" 
-              name="guess"
-              autocomplete="off" //<- This is the browser autocomplete
-              onChange={handleInputChange}
-            />
+            <div
+              className="inputFieldContainer"
+            >
+              <input 
+                type="text" 
+                id="guess" 
+                name="guess"
+                autocomplete="off" //<- This is the browser autocomplete
+                onChange={handleInputChange}
+              />
+              <div className="autocompleteContainer">
+                {autocompleteJSX}
+              </div>
+            </div>
             <input type="submit" value="Submit"/>
           </form>
       </>
