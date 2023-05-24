@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {puzzle} from '../data';
+import {pokemonList} from '../pokemonList'
 import {Link} from "react-router-dom";
 import AnswerButton from './AnswerButton';
 
@@ -12,6 +13,9 @@ function GuessPage() {
 
   // Index of the guess which is correct (-1 means user has not guessed correctly)
   const [correctGuessIndex, setcorrectGuessIndex] = useState(-1);
+
+  // The shown autocomplete after you type in stuff in the input field
+  const [autoCompleteItems, setAutoCompleteItems] = useState([]);
 
   // _______________________________________________________________________
 
@@ -62,6 +66,18 @@ function GuessPage() {
     // If statement is there because you don't want it to show a image index for an image that isn't there
     if(guessIndex + 1 < images.length){
       changeImageIndex(guessIndex + 1);
+    }
+  }
+
+  // What happens when someone types into the input field
+  function handleInputChange(e){
+    e.preventDefault();
+
+    if(e.target.value.length > 0){
+      let autocomplete = pokemonList.filter(pokemon => pokemon.startsWith(e.target.value));
+      setAutoCompleteItems(autocomplete);
+    }else{
+      setAutoCompleteItems([]);
     }
   }
 
@@ -155,7 +171,13 @@ function GuessPage() {
           <form 
             onSubmit={handleSubmit}
           >
-            <input type="text" id="guess" name="guess"/>
+            <input 
+              type="text" 
+              id="guess" 
+              name="guess"
+              autocomplete="off" //<- This is the browser autocomplete
+              onChange={handleInputChange}
+            />
             <input type="submit" value="Submit"/>
           </form>
       </>
