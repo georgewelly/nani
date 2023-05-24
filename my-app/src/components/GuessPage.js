@@ -17,6 +17,9 @@ function GuessPage() {
   // The shown autocomplete after you type in stuff in the input field
   const [autoCompleteItems, setAutoCompleteItems] = useState([]);
 
+  // What is in the input field
+  const [inputFieldValue, setInputFieldValue] = useState("");
+
   // _______________________________________________________________________
 
   // Fake data section
@@ -72,13 +75,18 @@ function GuessPage() {
   // What happens when someone types into the input field
   function handleInputChange(e){
     e.preventDefault();
-
+    setInputFieldValue(e.target.value);
     if(e.target.value.length > 0){
       let autocomplete = pokemonList.filter(pokemon => pokemon.startsWith(e.target.value));
       setAutoCompleteItems(autocomplete);
     }else{
       setAutoCompleteItems([]);
     }
+  }
+
+  function handleAutoComplete(item){
+    setAutoCompleteItems([]);
+    setInputFieldValue(item);
   }
 
   // Function that runs when a guess is made
@@ -159,7 +167,10 @@ function GuessPage() {
   // Autocomplete
   // let autocompleteJSX = [];
   let autocompleteJSX = autoCompleteItems.map((autocompleteItem) => 
-    <p className="autoCompleteItem">
+    <p 
+      className="autoCompleteItem"
+      onClick={()=>{handleAutoComplete(autocompleteItem)}}
+    >
       {autocompleteItem}
     </p>
   );
@@ -187,6 +198,7 @@ function GuessPage() {
                 id="guess" 
                 name="guess"
                 autocomplete="off" //<- This is the browser autocomplete
+                value={inputFieldValue}
                 onChange={handleInputChange}
               />
               <div className="autocompleteContainer">
