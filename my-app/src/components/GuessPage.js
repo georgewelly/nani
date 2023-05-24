@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import {Link} from "react-router-dom";
 import {puzzle} from '../data';
 import {pokemonList} from '../pokemonList'
-import {Link} from "react-router-dom";
 import AnswerButton from './AnswerButton';
 
 function GuessPage() {
@@ -21,21 +21,10 @@ function GuessPage() {
   const [inputFieldValue, setInputFieldValue] = useState("");
 
   // _______________________________________________________________________
-
-  // Fake data section
+  // Show the correct puzzle
 
   // Get the URL query.
   // ...?puzzle=... <- the value of the puzzle key will be the index of the puzzle loaded
-  // const queryString = window.location.search;
-  // const searchParams = new URLSearchParams(queryString);
-  // let puzzleNumber =  parseInt(searchParams.get("puzzle"));
-
-  // // TODO: Handle if query is not present or is a string or something 
-  // // VVV For some reason putting this in an if statement crashes... VVV
-  // let correctAnswer = puzzle[puzzleNumber-1].answer;
-  // let images = puzzle[puzzleNumber-1].images;
-
-
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
   let puzzleNumber = parseInt(searchParams.get("puzzle"));
@@ -70,6 +59,11 @@ function GuessPage() {
     if(guessIndex + 1 < images.length){
       changeImageIndex(guessIndex + 1);
     }
+  }
+
+  // Change the image to show the last image in the image array
+  function showAnswer(){
+    changeImageIndex(images.length-1);
   }
 
   // What happens when someone types into the input field
@@ -112,11 +106,6 @@ function GuessPage() {
       console.log("fail");
       advanceGuess();
     }
-  }
-
-  // Change the image to show the last image in the image array
-  function showAnswer(){
-    changeImageIndex(images.length-1);
   }
 
   // _______________________________________________________________________
@@ -167,7 +156,6 @@ function GuessPage() {
   }
 
   // Autocomplete
-  // let autocompleteJSX = [];
   let autocompleteJSX = autoCompleteItems.map((autocompleteItem) => 
     <p 
       className="autoCompleteItem"
