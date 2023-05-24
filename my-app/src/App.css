@@ -1,0 +1,152 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+/* Felix's CSS below here */
+
+/* Shared CSS for every page */
+
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 475px;
+}
+
+.topBar{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+.howToPlayPopUp{
+  text-align: left;
+  padding: 8px;
+  background-color: beige;
+  position: relative;
+}
+
+.howToPlayPopUpCloseButton{
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+/* Guess page CSS */
+
+.pictureContainer{
+   /* padding: 100%; */
+   width: 100%;
+   /* background-color: aqua; */
+}
+
+.pictureContainerInner{
+  padding-top: 100%;
+  position: relative;
+}
+
+.pictureContainer img{
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.screenshotNumberAndSkipContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.screenshotNumberContainer{
+ display: flex;
+ flex-direction: row;
+}
+
+.SelectedNumber{
+  font-weight: bold;
+}
+
+.wrong{
+  background-color: red;
+}
+
+.correct{
+  background-color: green;
+}
+
+.disabled{
+  background-color: black;
+}
+
+/* Form */
+.form{
+  display: flex;
+}
+
+.inputFieldContainer{
+  position: relative;
+}
+
+.autocompleteContainer{
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+.autoCompleteItem{
+  background-color: white;
+  margin: 0;
+  border: 1px solid black;
+}
+
+/* Previous puzzle page */
+.dateGrid{
+  display: grid;
+  grid-template-columns: 1fr  1fr;
+  row-gap: 4px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.date{
+  margin: 0;
+}
