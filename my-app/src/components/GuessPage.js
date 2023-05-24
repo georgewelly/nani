@@ -149,6 +149,7 @@ function GuessPage() {
         // Classname changes depending on if the current image index is the same as the button
         className={classNames}
         onClick={onClickVaule}
+        key={i}
       >
         {i+1}
       </button>
