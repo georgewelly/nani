@@ -113,7 +113,7 @@ function GuessPage() {
 
   // Render Numbered Buttons (does not include answer button)
   let screenshotNumberButtonArray = [];
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < images.length-1; i++) {
     let onClickVaule;
     let classNames = "";
 
@@ -174,7 +174,7 @@ function GuessPage() {
   let skipOrAnswerButton;
   if(correctGuessIndex === -1){
     // User has not guessed correctly yet
-    if(guessIndex < 6){
+    if(guessIndex < images.length-1){
       // User still has guesses
       formCongratsOrCondolences = <>
           <form 
