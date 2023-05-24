@@ -187,7 +187,7 @@ function GuessPage() {
                 type="text" 
                 id="guess" 
                 name="guess"
-                autocomplete="off" //<- This is the browser autocomplete
+                autoComplete="off" //<- This is the browser autocomplete
                 value={inputFieldValue}
                 onChange={handleInputChange}
               />
