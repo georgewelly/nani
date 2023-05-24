@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {puzzle} from '../data';
 import {Link} from "react-router-dom";
+import AnswerButton from './AnswerButton';
 
 function GuessPage() {
   // Current image shown
@@ -168,25 +169,23 @@ function GuessPage() {
     }else{
       // User has no guesses left
       formCongratsOrCondolences = <p>Condolences, the answer is {correctAnswer}</p>
-      skipOrAnswerButton = <>
-        <button 
-          className={imageIndex === images.length-1 ? "SelectedNumber":""}
-          onClick={showAnswer}
-        >
-          Answer
-        </button>
-      </>
+      skipOrAnswerButton = (
+        <
+          AnswerButton
+          selected={imageIndex === images.length-1}
+          showAnswer={showAnswer}
+        />
+      );
     }
   }else{
     formCongratsOrCondolences = <p>Yee! The answer is {correctAnswer}</p>
-    skipOrAnswerButton = <>
-        <button 
-          className={imageIndex === images.length-1 ? "SelectedNumber":""}
-          onClick={showAnswer}
-        >
-          Answer
-        </button>
-      </>
+    skipOrAnswerButton = (
+      <
+        AnswerButton
+        selected={imageIndex === images.length-1}
+        showAnswer={showAnswer}
+      />
+    );
   }
 
 
