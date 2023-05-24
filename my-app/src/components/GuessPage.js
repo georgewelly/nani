@@ -104,7 +104,7 @@ function GuessPage() {
 
     setInputFieldValue("");
 
-    if(formJson.guess == correctAnswer){
+    if(formJson.guess.toLowerCase() === correctAnswer.toLowerCase()){
       console.log("correct");
       setcorrectGuessIndex(guessIndex);
       showAnswer();
