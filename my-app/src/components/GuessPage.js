@@ -80,16 +80,22 @@ function GuessPage() {
     if(formJson.guess == correctAnswer){
       console.log("correct");
       setcorrectGuessIndex(guessIndex);
+      showAnswer();
     }else{
       console.log("fail");
       advanceGuess();
     }
   }
 
+  // Change the image to show the last image in the image array
+  function showAnswer(){
+    changeImageIndex(images.length-1);
+  }
+
   // _______________________________________________________________________
   // Rendering components that change with logic
 
-  // Render Numbered Buttons
+  // Render Numbered Buttons (does not include answer button)
   let screenshotNumberButtonArray = [];
   for (let i = 0; i < 6; i++) {
     let onClickVaule;
@@ -162,9 +168,25 @@ function GuessPage() {
     }else{
       // User has no guesses left
       formCongratsOrCondolences = <p>Condolences, the answer is {correctAnswer}</p>
+      skipButton = <>
+        <button 
+          className={imageIndex === images.length-1 ? "SelectedNumber":""}
+          onClick={showAnswer}
+        >
+          Answer
+        </button>
+      </>
     }
   }else{
     formCongratsOrCondolences = <p>Yee! The answer is {correctAnswer}</p>
+    skipButton = <>
+        <button 
+          className={imageIndex === images.length-1 ? "SelectedNumber":""}
+          onClick={showAnswer}
+        >
+          Answer
+        </button>
+      </>
   }
 
 

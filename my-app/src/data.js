@@ -1,13 +1,14 @@
 export const puzzle = [
     {
-        answer: "hi",
+        answer: "Vileplume",
         images: [
             "https://cdn.discordapp.com/attachments/1108697365700943902/1109135835128926259/SPOILER_image_4.png",
             "https://cdn.discordapp.com/attachments/1108697365700943902/1109135933883813898/SPOILER_Mask_group.png",
             "https://cdn.discordapp.com/attachments/1108697365700943902/1109135998505455708/SPOILER_image_2_1.png",
             "https://cdn.discordapp.com/attachments/1108697365700943902/1109136093166719036/SPOILER_Mask_group_1.png",
             "https://cdn.discordapp.com/attachments/1108697365700943902/1109136156144173146/SPOILER_image_5.png",
-            "https://cdn.discordapp.com/attachments/1108697365700943902/1109136214881226823/SPOILER_image_7_2.png"
+            "https://cdn.discordapp.com/attachments/1108697365700943902/1109136214881226823/SPOILER_image_7_2.png",
+            "https://cdn.discordapp.com/attachments/1108697365700943902/1109136354740277249/SPOILER_image_1_1.png"
         ]
     },
     {
