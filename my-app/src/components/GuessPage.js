@@ -158,12 +158,12 @@ function GuessPage() {
 
   // Autocomplete
   let autocompleteJSX = autoCompleteItems.map((autocompleteItem) => 
-    <p 
+    <div 
       className="autoCompleteItem"
       onClick={()=>{handleAutoComplete(autocompleteItem)}}
     >
       {autocompleteItem}
-    </p>
+    </div>
   );
   
   // Show either: 
