@@ -94,7 +94,7 @@ function GuessPage() {
     const formJson = Object.fromEntries(formData.entries());
     console.log(formJson);
 
-    if(formJson.guess == correctAnswer){
+    if(formJson.guess === correctAnswer){
       console.log("correct");
       setcorrectGuessIndex(guessIndex);
       showAnswer();
