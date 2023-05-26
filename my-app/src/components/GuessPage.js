@@ -234,9 +234,11 @@ function GuessPage() {
       <p>Puzzle Number #{puzzleNumber}</p>
       <div className="pictureContainer">
         <div  className="pictureContainerInner">
-          <img 
-          src={images[imageIndex]}
-          />
+          <div className="pictureContainerInnerFlex">
+            <img 
+            src={images[imageIndex]}
+            />
+          </div>
         </div>
       </div >
       <div className="screenshotNumberAndSkipContainer">
