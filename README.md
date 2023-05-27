@@ -11,6 +11,8 @@ A game site where you guess the Pokemon of the day based on screenshots and hint
 ![guess the game](img/guessthegame.png)
 
 ## Extensions 
+* "Not affiliated by Nintendo or Gamefreak" disclamer
+* Arrow keys and enter to select on autocomplete.
 * Hints for the Pokemon (Pokemon type, which generation it's in etc)
 * History of guesses and database
 * Hosting images from all of time
