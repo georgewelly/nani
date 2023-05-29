@@ -6,6 +6,7 @@ import VerticalAd1 from './components/ads/VerticalAd1';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
+  // Show google ads if screen bigger than a certain amount
 
   return (
     <div className="App">
