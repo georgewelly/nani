@@ -12,7 +12,7 @@ A game site where you guess the Pokemon of the day based on screenshots and hint
 
 ## Extensions 
 * "Not affiliated by Nintendo or Gamefreak" disclamer
-* Arrow keys and enter to select on autocomplete.
+* Arrow keys and enter to select on autocomplete. (<- Maybe later? It's a bit more complex than I thought it would be.)
 * Style the pages so it looks good
 * Show Google ads
 * Hints for the Pokemon (Pokemon type, which generation it's in etc)
