@@ -15,7 +15,7 @@ A game site where you guess the Pokemon of the day based on screenshots and hint
 * Arrow keys and enter to select on autocomplete.
 * Hints for the Pokemon (Pokemon type, which generation it's in etc)
 * History of guesses and database
-* Hosting images from all of time
+* Hosting images properly for free (using the Backblaze B2 and Cloudflare method https://jross.me/free-personal-image-hosting-with-backblaze-b2-and-cloudflare-workers/)
 * Automate metadata collection for Pokemon
 
 ___________________________________________________________________________________________
