@@ -38,7 +38,7 @@ export const puzzle = [
     {
         answer: "Pachirisu",
         images: [
-            "https://i.imgur.com/NCDhMkS.png",
+            "https://i.imgur.com/BHKBbww.png",
             "https://i.imgur.com/ecGyUUy.png",
             "https://i.imgur.com/eRYG7fR.png",
             "https://i.imgur.com/JIZRgvK.png",
