@@ -2,12 +2,15 @@ import './App.css';
 import TopBar from './components/TopBar';
 import GuessPage from './components/GuessPage';
 import PreviousPuzzlePage from './components/PreviousPuzzlePage';
+import VerticalAd1 from './components/ads/VerticalAd1';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
+  // Show google ads if screen bigger than a certain amount
 
   return (
     <div className="App">
+      <VerticalAd1/>
       <div className="mainContainer">
         <TopBar/>
         <BrowserRouter>
@@ -18,6 +21,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
+      <VerticalAd1/>
     </div>
   );
 }
