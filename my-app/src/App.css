@@ -150,10 +150,15 @@
   /* text-transform: capitalize; */
 }
 
-.autoCompleteItem:hover{
+.selectedAutocompleteItem{
   background-color: red;
   color: white;
 }
+
+/* .autoCompleteItem:hover{
+  background-color: red;
+  color: white;
+} */
 
 /* Previous puzzle page */
 .dateGrid{

@@ -20,6 +20,14 @@ function GuessPage() {
   // What is in the input field
   const [inputFieldValue, setInputFieldValue] = useState("");
 
+  // Input field focused or not
+  const [inputFieldIsFocused, setInputFieldIsFocused] = useState(false);  
+
+  // Show or hide autocomplete
+  // const [autocompleteIsShown, setShowAutocomplete] = useState(false);
+
+  const [currentlyHoveredAutocompleteEntry, setcurrentlyHoveredAutocompleteEntry] = useState(-1);
+
   // _______________________________________________________________________
   // Show the correct puzzle
 
@@ -78,9 +86,37 @@ function GuessPage() {
     }
   }
 
+  function handleIsInputFieldFocused(bool){
+    setInputFieldIsFocused(bool);
+  }
+
   function handleAutoComplete(item){
     setAutoCompleteItems([]);
     setInputFieldValue(item);
+    console.log("hi");
+  }
+
+  // Function that runs when a key on the keyboard is pressed
+  function handleOnKeyDown(e) {
+    if(inputFieldIsFocused === true){
+      if(e.keyCode === 40){ // <- If the down key is pressed
+        console.log("down");
+        if(currentlyHoveredAutocompleteEntry <= autoCompleteItems.length -1){
+          setcurrentlyHoveredAutocompleteEntry(currentlyHoveredAutocompleteEntry + 1);
+        }
+      }
+      if(e.keyCode === 38){ // <- If the up key is pressed
+        if(currentlyHoveredAutocompleteEntry >= 0){
+          setcurrentlyHoveredAutocompleteEntry(currentlyHoveredAutocompleteEntry - 1);
+        }
+      }
+      if(e.keyCode === 13){ // <- If the enter key is pressed
+        if(currentlyHoveredAutocompleteEntry >= 0){
+          // If autocomplete selected
+          handleAutoComplete(autoCompleteItems[currentlyHoveredAutocompleteEntry]);
+        }
+      }
+    }
   }
 
   // Function that runs when a guess is made
@@ -157,14 +193,20 @@ function GuessPage() {
   }
 
   // Autocomplete
-  let autocompleteJSX = autoCompleteItems.map((autocompleteItem) => 
-    <div 
-      className="autoCompleteItem"
-      onClick={()=>{handleAutoComplete(autocompleteItem)}}
-    >
-      {autocompleteItem}
-    </div>
-  );
+  let autocompleteJSX = autoCompleteItems.map((autocompleteItem, index) =>{
+    let classNames = "autoCompleteItem";
+    if(index === currentlyHoveredAutocompleteEntry){
+      classNames = classNames + " selectedAutocompleteItem"
+    }
+    return(
+      <div 
+        className={classNames}
+        onClick={()=>{handleAutoComplete(autocompleteItem)}}
+      >
+        {autocompleteItem}
+      </div>
+    ) 
+  });
   
   // Show either: 
     // - Form for user to guess an answer, 
@@ -191,12 +233,15 @@ function GuessPage() {
                 autoComplete="off" //<- This is the browser autocomplete
                 value={inputFieldValue}
                 onChange={handleInputChange}
+                onFocus={()=>{handleIsInputFieldFocused(true)}}
+                // onBlur = {()=>{handleIsInputFieldFocused(false)}} // <- By Clicking on the autocomplete, this closes the autocomplete before the click is registered
+                onKeyDown={handleOnKeyDown}
               />
               <div className="autocompleteContainer">
-                {autocompleteJSX}
+                {inputFieldIsFocused === true ? autocompleteJSX : ""}
               </div>
             </div>
-            <input type="submit" value="Submit"/>
+            {/* <input type="submit" value="Submit"/> */}
           </form>
       </>
       skipOrAnswerButton = <>
