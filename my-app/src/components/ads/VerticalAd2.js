@@ -2,7 +2,7 @@ function VerticalAd2(){
     return(
         <>
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5524499148214220"
-                crossorigin="anonymous"></script>
+                crossOrigin="anonymous"></script>
             {/* <!-- Vertical Ad 2 --> */}
             <ins className="adsbygoogle verticalAd2"
                 data-ad-client="ca-pub-5524499148214220"
