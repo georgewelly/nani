@@ -1,9 +1,45 @@
 .App {
   text-align: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
   margin: 8px;
+}
+
+@media(min-width: 640px) { 
+  .App {
+    justify-content: space-between; 
+  } 
+}
+
+/* Ads CSS */
+
+/* verticalAd1 verticalAd2 */
+.verticalAd1, .verticalAd2{ 
+  display:block;
+}
+
+@media(min-width: 640px) { 
+  .verticalAd1 {
+    width: calc(100vw - 500px); 
+    height: calc(100vh - 16px); 
+  } 
+}
+
+@media(min-width: 800px) { 
+  .verticalAd1 {
+    width: calc((100vw - 500px)/2); 
+    height: calc(100vh - 16px); 
+  } 
+}
+
+@media(min-width: 800px) { 
+  .verticalAd2 { 
+    /* min-width: 100px; */
+    display:block;
+    width: calc((100vw - 500px)/2); 
+    height: calc(100vh - 16px); 
+  } 
 }
 
 .App-logo {
@@ -39,6 +75,8 @@
   align-items: center;
   width: 100%;
   max-width: 475px;
+  flex-shrink: 0;
+  margin: 0px 8px;
 }
 
 .topBar{
@@ -59,6 +97,11 @@
   position: absolute;
   right: 8px;
   top: 8px;
+}
+
+.disclaimerText{
+  font-size: 0.7em;
+  color: gray;
 }
 
 /* Guess page CSS */

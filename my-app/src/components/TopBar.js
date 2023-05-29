@@ -39,6 +39,7 @@ function TopBar() {
           </div>
       </div>
       {howToPlayShown?howToPlayJSX:""}
+      <p className="disclaimerText">This is a fan site, we are not affiliated with Nintendo or Game Freak</p>
     </>
   );
 }
