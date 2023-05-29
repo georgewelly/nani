@@ -2,7 +2,7 @@ import './App.css';
 import TopBar from './components/TopBar';
 import GuessPage from './components/GuessPage';
 import PreviousPuzzlePage from './components/PreviousPuzzlePage';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
 
@@ -12,10 +12,9 @@ function App() {
         <TopBar/>
         <BrowserRouter>
           <Routes>
-            <Route index element={<GuessPage/>} />
+            <Route index path="/" element={<GuessPage/>} />
             <Route path="/previous" element={<PreviousPuzzlePage />} />
-            {/* Todo Write an error page */}
-            {/* <Route path="*" element={<NoPage />} /> */}
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
       </div>

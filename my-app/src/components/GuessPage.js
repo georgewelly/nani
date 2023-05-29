@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import {Link} from "react-router-dom";
 import {puzzle} from '../data';
 import {pokemonList} from '../pokemonList'
-import {Link} from "react-router-dom";
 import AnswerButton from './AnswerButton';
 
 function GuessPage() {
@@ -17,22 +17,14 @@ function GuessPage() {
   // The shown autocomplete after you type in stuff in the input field
   const [autoCompleteItems, setAutoCompleteItems] = useState([]);
 
-  // _______________________________________________________________________
+  // What is in the input field
+  const [inputFieldValue, setInputFieldValue] = useState("");
 
-  // Fake data section
+  // _______________________________________________________________________
+  // Show the correct puzzle
 
   // Get the URL query.
   // ...?puzzle=... <- the value of the puzzle key will be the index of the puzzle loaded
-  // const queryString = window.location.search;
-  // const searchParams = new URLSearchParams(queryString);
-  // let puzzleNumber =  parseInt(searchParams.get("puzzle"));
-
-  // // TODO: Handle if query is not present or is a string or something 
-  // // VVV For some reason putting this in an if statement crashes... VVV
-  // let correctAnswer = puzzle[puzzleNumber-1].answer;
-  // let images = puzzle[puzzleNumber-1].images;
-
-
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
   let puzzleNumber = parseInt(searchParams.get("puzzle"));
@@ -69,16 +61,26 @@ function GuessPage() {
     }
   }
 
+  // Change the image to show the last image in the image array
+  function showAnswer(){
+    changeImageIndex(images.length-1);
+  }
+
   // What happens when someone types into the input field
   function handleInputChange(e){
     e.preventDefault();
-
+    setInputFieldValue(e.target.value);
     if(e.target.value.length > 0){
       let autocomplete = pokemonList.filter(pokemon => pokemon.startsWith(e.target.value));
       setAutoCompleteItems(autocomplete);
     }else{
       setAutoCompleteItems([]);
     }
+  }
+
+  function handleAutoComplete(item){
+    setAutoCompleteItems([]);
+    setInputFieldValue(item);
   }
 
   // Function that runs when a guess is made
@@ -94,7 +96,9 @@ function GuessPage() {
     const formJson = Object.fromEntries(formData.entries());
     console.log(formJson);
 
-    if(formJson.guess === correctAnswer){
+    setInputFieldValue("");
+
+    if(formJson.guess.toLowerCase() === correctAnswer.toLowerCase()){
       console.log("correct");
       setcorrectGuessIndex(guessIndex);
       showAnswer();
@@ -104,17 +108,12 @@ function GuessPage() {
     }
   }
 
-  // Change the image to show the last image in the image array
-  function showAnswer(){
-    changeImageIndex(images.length-1);
-  }
-
   // _______________________________________________________________________
   // Rendering components that change with logic
 
   // Render Numbered Buttons (does not include answer button)
   let screenshotNumberButtonArray = [];
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < images.length-1; i++) {
     let onClickVaule;
     let classNames = "";
 
@@ -150,6 +149,7 @@ function GuessPage() {
         // Classname changes depending on if the current image index is the same as the button
         className={classNames}
         onClick={onClickVaule}
+        key={i}
       >
         {i+1}
       </button>
@@ -157,11 +157,13 @@ function GuessPage() {
   }
 
   // Autocomplete
-  // let autocompleteJSX = [];
   let autocompleteJSX = autoCompleteItems.map((autocompleteItem) => 
-    <p className="autoCompleteItem">
+    <div 
+      className="autoCompleteItem"
+      onClick={()=>{handleAutoComplete(autocompleteItem)}}
+    >
       {autocompleteItem}
-    </p>
+    </div>
   );
   
   // Show either: 
@@ -172,7 +174,7 @@ function GuessPage() {
   let skipOrAnswerButton;
   if(correctGuessIndex === -1){
     // User has not guessed correctly yet
-    if(guessIndex < 6){
+    if(guessIndex < images.length-1){
       // User still has guesses
       formCongratsOrCondolences = <>
           <form 
@@ -186,7 +188,8 @@ function GuessPage() {
                 type="text" 
                 id="guess" 
                 name="guess"
-                autocomplete="off" //<- This is the browser autocomplete
+                autoComplete="off" //<- This is the browser autocomplete
+                value={inputFieldValue}
                 onChange={handleInputChange}
               />
               <div className="autocompleteContainer">
@@ -231,9 +234,11 @@ function GuessPage() {
       <p>Puzzle Number #{puzzleNumber}</p>
       <div className="pictureContainer">
         <div  className="pictureContainerInner">
-          <img 
-          src={images[imageIndex]}
-          />
+          <div className="pictureContainerInnerFlex">
+            <img 
+            src={images[imageIndex]}
+            />
+          </div>
         </div>
       </div >
       <div className="screenshotNumberAndSkipContainer">

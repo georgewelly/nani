@@ -12,26 +12,40 @@ export const puzzle = [
         ]
     },
     {
-        answer: "Cat",
+        answer: "Incineroar",
         images: [
-            "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_2x3.jpg",
-            "https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8fA%3D%3D&w=1000&q=80",
-            "https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg",
-            "https://www.humanesociety.org/sites/default/files/2022-08/hl-yp-cats-579652.jpg",
-            "https://media.npr.org/assets/img/2021/08/11/gettyimages-1279899488_wide-f3860ceb0ef19643c335cb34df3fa1de166e2761-s1100-c50.jpg",
-            "https://icatcare.org/app/uploads/2018/06/Layer-1704-1200x630.jpg"
+            "https://imgur.com/n9jJREM.png",
+            "https://imgur.com/jdLIbBH.png",
+            "https://imgur.com/8tBZRvx.png",
+            "https://imgur.com/vYaV5sB.png",
+            "https://imgur.com/np1bX1V.png",
+            "https://imgur.com/cNVVegg.png",
+            "https://imgur.com/7PS69Xg.png"
         ]
     },
     {
-        answer: "British Kabaddi League",
+        answer: "Togepi",
         images: [
-            "https://ichef.bbci.co.uk/onesport/cps/624/cpsprodpb/DF82/production/_124381275_kabaddi_bulls.jpg",
-            "https://www.millersoils.co.uk/wp-content/uploads/2022/03/Kishan-Image-final.jpg",
-            "https://pbs.twimg.com/media/FMdDmDAXoBATjxG?format=jpg&name=large",
-            "https://i.ytimg.com/vi/HhHpvBBS0BQ/maxresdefault.jpg",
-            "https://ichef.bbci.co.uk/onesport/cps/624/cpsprodpb/3CAE/production/_124243551_ankur_desai_rakesh_kumar.jpg",
-            "https://static.wixstatic.com/media/8ce999_a25079c3a0cf4f9bb0467cc5dc2a67dc~mv2.jpg/v1/fill/w_640,h_402,al_t,q_80,usm_0.66_1.00_0.01,enc_auto/8ce999_a25079c3a0cf4f9bb0467cc5dc2a67dc~mv2.jpg"
-        ]
+            "https://i.imgur.com/NCDhMkS.png",
+            "https://i.imgur.com/oGH7DZE.png",
+            "https://imgur.com/uq9bxkN.png",
+            "https://i.imgur.com/fPCYvAk.png",
+            "https://i.imgur.com/kGUlDi3.png",
+            "https://i.imgur.com/GllYGGL.png",
+            "https://i.imgur.com/rLjb5Bq.png"
+        ],
+    },
+    {
+        answer: "Pachirisu",
+        images: [
+            "https://i.imgur.com/BHKBbww.png",
+            "https://i.imgur.com/ecGyUUy.png",
+            "https://i.imgur.com/eRYG7fR.png",
+            "https://i.imgur.com/JIZRgvK.png",
+            "https://i.imgur.com/mmRNHHC.png",
+            "https://i.imgur.com/0KKFN8Z.png",
+            "https://i.imgur.com/KTTaXY6.png"
+        ],
     },
 ];
 

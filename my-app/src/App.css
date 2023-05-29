@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 8px;
 }
 
 .App-logo {
@@ -73,16 +74,25 @@
   position: relative;
 }
 
-.pictureContainer img{
+.pictureContainerInnerFlex{
   position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.pictureContainerInnerFlex img{
+  max-width: 100%;
+  max-height: 100%;
+
+}
+
 
 .screenshotNumberAndSkipContainer{
   display: flex;
@@ -136,6 +146,13 @@
   background-color: white;
   margin: 0;
   border: 1px solid black;
+  cursor: default;
+  /* text-transform: capitalize; */
+}
+
+.autoCompleteItem:hover{
+  background-color: red;
+  color: white;
 }
 
 /* Previous puzzle page */
