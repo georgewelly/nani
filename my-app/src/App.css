@@ -99,6 +99,11 @@
   top: 8px;
 }
 
+.disclaimerText{
+  font-size: 0.7em;
+  color: gray;
+}
+
 /* Guess page CSS */
 
 .pictureContainer{
