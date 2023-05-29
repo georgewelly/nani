@@ -3,6 +3,7 @@ import TopBar from './components/TopBar';
 import GuessPage from './components/GuessPage';
 import PreviousPuzzlePage from './components/PreviousPuzzlePage';
 import VerticalAd1 from './components/ads/VerticalAd1';
+import VerticalAd2 from './components/ads/VerticalAd2';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
-      <VerticalAd1/>
+      <VerticalAd2/>
     </div>
   );
 }
